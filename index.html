@@ -39,6 +39,11 @@
             return humanChoice = capitalizeLetter;
         }
 
+        function callHumanAndComputerChoices() {
+            getComputerChoice();
+            getHumanChoice();
+        }
+
      // Return a valid choice 
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
@@ -50,7 +55,7 @@
         // Compare humanChoice and computerChoice
         // Make them parameter case-insensitive
         // Increment the scores based on the round winner
-        function playRound(humanSelection, computerSelection) {
+        function playRound(humanChoice, computerChoice) {
 
             if (humanChoice == computerChoice) {
                 console.log('You tied!');
@@ -65,11 +70,22 @@
             
         }
 
-            
-        playRound(humanSelection, computerSelection);
-        console.log('Your score is ' + humanScore);
-        console.log(`The computer's score is ` + computerScore);
+        function Loop() {
+            callHumanAndComputerChoices();
+            playRound(humanChoice, computerChoice);
+            console.log('Your score is ' + humanScore);
+            console.log(`The computer's score is ` + computerScore);
+        }
+
         
+
+        function playGame() {
+            Loop();
+            Loop();
+
+        }
+        
+        playGame();
         
 
 
