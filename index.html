@@ -17,11 +17,23 @@
 
         // create new function playRound
         // define two parameters for playRound: humanChoice and computerChoice;
-        
+        // make parameters case-insensitive
+        // Write the code for function to console.log a string value representing the round winner
+        // Increment the humanScore or computerScore variable based on the round winner
 
         function playRound(humanChoice, computerChoice) {
+
+            if (computerChoice == 'rock' && humanChoice == 'scissors' 
+            || computerChoice == 'scissors' && humanChoice == 'paper'
+            |||
         
         }
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+
 
 
 
