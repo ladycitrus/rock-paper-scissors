@@ -39,7 +39,7 @@
             return humanChoice = capitalizeLetter;
         }
 
-        // Return a valid choice 
+     // Return a valid choice 
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
 
@@ -50,37 +50,28 @@
         // Compare humanChoice and computerChoice
         // Make them parameter case-insensitive
         // Increment the scores based on the round winner
-       
+        function playRound(humanSelection, computerSelection) {
+
+            if (humanChoice == computerChoice) {
+                console.log('You tied!');
+            } else if ( humanChoice == 'Paper' && computerChoice == 'Scissors' || humanChoice == 'Scissors' && computerChoice == 'Rock' ||  humanChoice == 'Rock' && computerChoice == 'Paper') {
+                console.log('You lose! ' + computerChoice + ' beats ' + humanChoice.toLowerCase() + '.'); 
+                return computerScore += 1;
+            } else {
+                console.log('You win! ' + humanChoice + ' beats ' + computerChoice.toLowerCase() + '.');
+                return humanScore += 1;
+            } 
 
             
+        }
+
+            
+        playRound(humanSelection, computerSelection);
         console.log('Your score is ' + humanScore);
         console.log(`The computer's score is ` + computerScore);
+        
+        
 
-        function playGame() {
-
-            var i = 0;
-
-            function playRound(humanSelection, computerSelection) {
-
-                if (humanChoice == computerChoice) {
-                    console.log('You tied!');
-                } else if ( humanChoice == 'sPaper' && computerChoice == 'Scissors' || humanChoice == 'Scissors' && computerChoice == 'Rock' ||  humanChoice == 'Rock' && computerChoice == 'Paper') {
-                    console.log('You lose! ' + computerChoice + ' beats ' + humanChoice.toLowerCase() + '.'); 
-                    return computerScore += 1;
-                } else {
-                    console.log('You win! ' + humanChoice + ' beats ' + computerChoice.toLowerCase() + '.');
-                    return humanScore += 1;
-                } 
-                }
-
-            if (i < 5) {
-                playRound(humanSelection, computerSelection);
-                i++;
-                
-            }
-
-        playGame();
-        }
 
         
 
