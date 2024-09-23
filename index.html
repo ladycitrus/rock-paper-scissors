@@ -19,16 +19,8 @@
         // Write the code for function to console.log a string value representing the round winner
         // Increment the humanScore or computerScore variable based on the round winner
 
+       
 
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-
-        // console.log(computerSelection);
-        // console.log(humanSelection);
-        playRound(humanSelection, computerSelection);
-        // console.log(computerScore + " " + humanScore);
 
         // Play the entire game
         // Game will play 5 rounds
@@ -36,10 +28,12 @@
         // Declare a winner at the end
 
         function playGame() {
+
+
         // Declare the players score variables
             let humanScore = 0;
             let computerScore = 0;
-        
+
             function playRound(humanChoice, computerChoice) {
                 let capitalizeComputerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
                 let capitalizeHumanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
@@ -58,7 +52,27 @@
                 }
             
             }
+        
+            
+
+            for (let i = 0; i < 5; i++) {
+                
+                
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+                
+
+                playRound(humanSelection, computerSelection);
+            }
+
+
+            // console.log(computerSelection);
+            // console.log(humanSelection);
+            
+            // console.log(computerScore + " " + humanScore);
         }
+
+        playGame();
 
 
 
