@@ -8,9 +8,7 @@
 <body>
     <script>
 
-        // Declare the players score variables
-        let humanScore = 0;
-        let computerScore = 0;
+        
 
         // Call the function getHumanChoice
         //getHumanChoice();
@@ -21,34 +19,46 @@
         // Write the code for function to console.log a string value representing the round winner
         // Increment the humanScore or computerScore variable based on the round winner
 
-        function playRound(humanChoice, computerChoice) {
-            let capitalizeComputerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-            let capitalizeHumanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
-            
-
-            if (computerChoice == humanChoice) {
-                console.log("You tied!");
-            } else if (computerChoice == 'rock' && humanChoice == 'scissors' || 
-            computerChoice == 'scissors' && humanChoice == 'paper' || 
-            computerChoice == 'paper' && humanChoice == 'rock') {
-                console.log("You lose! " + capitalizeComputerChoice + " beats " + humanChoice + ".");
-                return computerScore += 1;
-            } else {
-                console.log("You win! " + capitalizeHumanChoice + " beats " + computerChoice + ".");
-                return humanScore += 1;
-            }
-        
-        }
 
 
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
 
 
-        console.log(computerSelection);
-        console.log(humanSelection);
+        // console.log(computerSelection);
+        // console.log(humanSelection);
         playRound(humanSelection, computerSelection);
-        console.log(computerScore + " " + humanScore);
+        // console.log(computerScore + " " + humanScore);
+
+        // Play the entire game
+        // Game will play 5 rounds
+        // Keep track of score
+        // Declare a winner at the end
+
+        function playGame() {
+        // Declare the players score variables
+            let humanScore = 0;
+            let computerScore = 0;
+        
+            function playRound(humanChoice, computerChoice) {
+                let capitalizeComputerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+                let capitalizeHumanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+                
+
+                if (computerChoice == humanChoice) {
+                    console.log("You tied!");
+                } else if (computerChoice == 'rock' && humanChoice == 'scissors' || 
+                computerChoice == 'scissors' && humanChoice == 'paper' || 
+                computerChoice == 'paper' && humanChoice == 'rock') {
+                    console.log("You lose! " + capitalizeComputerChoice + " beats " + humanChoice + ".");
+                    return computerScore += 1;
+                } else {
+                    console.log("You win! " + capitalizeHumanChoice + " beats " + computerChoice + ".");
+                    return humanScore += 1;
+                }
+            
+            }
+        }
 
 
 
