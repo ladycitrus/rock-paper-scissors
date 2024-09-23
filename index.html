@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        let computerChoice = 0;
+        let humanChoice = 0;
+        
+        // GET computer choice of rock, paper, or scissors
+        // Computer chooses one of three options
+        // Randomize a number from 0 to 3
+        function getComputerChoice() {
+            let num = Math.floor(Math.random() * 3);
+
+        // IF computer chooses number 0, pick rock
+        // ELSEIF computer chooses number > 0 AND <= 1, pick paper
+        // ELSE pick scissors
+        if (num == 0) {
+            return (computerChoice = 'Rock');
+        } else if (num > 0 && num <= 1) {
+            return (computerChoice = 'Paper');
+        } else {
+            return (computerChoice = 'Scissors');
+        }
+    }
+
+        
+
+        // Get player's choices 
+        function getHumanChoice() {
+            humanChoice = prompt("Choose rock, paper, or scissors?");
+            let capitalizeLetter = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+
+            
+            return humanChoice = capitalizeLetter;
+        }
+
+        // Return a valid choice 
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        // declare the players scores variables
+        var humanScore = 0;
+        var computerScore = 0;
+
+        // Compare humanChoice and computerChoice
+        // Make them parameter case-insensitive
+        // Increment the scores based on the round winner
+       
+
+            
+        console.log('Your score is ' + humanScore);
+        console.log(`The computer's score is ` + computerScore);
+
+        function playGame() {
+
+            var i = 0;
+
+            function playRound(humanSelection, computerSelection) {
+
+                if (humanChoice == computerChoice) {
+                    console.log('You tied!');
+                } else if ( humanChoice == 'sPaper' && computerChoice == 'Scissors' || humanChoice == 'Scissors' && computerChoice == 'Rock' ||  humanChoice == 'Rock' && computerChoice == 'Paper') {
+                    console.log('You lose! ' + computerChoice + ' beats ' + humanChoice.toLowerCase() + '.'); 
+                    return computerScore += 1;
+                } else {
+                    console.log('You win! ' + humanChoice + ' beats ' + computerChoice.toLowerCase() + '.');
+                    return humanScore += 1;
+                } 
+                }
+
+            if (i < 5) {
+                playRound(humanSelection, computerSelection);
+                i++;
+                
+            }
+
+        playGame();
+        }
+
+        
+
+        
+
+
+    </script>
+    
+</body>
+</html>
