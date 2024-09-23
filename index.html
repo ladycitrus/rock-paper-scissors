@@ -8,24 +8,56 @@
 <body>
     <script>
 
+        // Declare the players score variables
+        let humanScore = 0;
+        let computerScore = 0;
+
+        // Call the function getHumanChoice
+        getHumanChoice();
+
+        // create new function playRound
+        // define two parameters for playRound: humanChoice and computerChoice;
+        
+
+        function playRound(humanChoice, computerChoice) {
+        
+        }
+
+
+
         // Play a game of Rock, Paper, Scissors against the computer
         // Randomly generate rock, paper, or scissors for computer
 
         function getComputerChoice() {
-         let computerSelection = Math.floor(Math.random() * 3);
+         let computerChoice = Math.floor(Math.random() * 3);
 
-         if (computerSelection == 0) {
-            return computerSelection = 'rock';
-         } else if (computerSelection == 1) {
-            return computerSelection = 'paper';
+         if (computerChoice == 0) {
+            return computerChoice = 'rock';
+         } else if (computerChoice == 1) {
+            return computerChoice = 'paper';
          } else {
-            return computerSelection = 'scissors';
+            return computerChoice = 'scissors';
          }
-         
         
         }
 
-        console.log(getComputerChoice());
+        // Show computer's choice
+        // console.log(getComputerChoice());
+
+        // Prompt the user for their choice of rock, paper, or scissors
+        function getHumanChoice() {
+            let humanChoice = prompt("Choose rock, paper, or scissors");
+            return humanChoice;
+
+        }
+
+
+
+        // Show human's choice
+        // console.log(getHumanChoice());
+
+
+
 
         
 
