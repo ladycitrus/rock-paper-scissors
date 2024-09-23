@@ -13,7 +13,7 @@
         let computerScore = 0;
 
         // Call the function getHumanChoice
-        getHumanChoice();
+        //getHumanChoice();
 
         // create new function playRound
         // define two parameters for playRound: humanChoice and computerChoice;
@@ -22,17 +22,34 @@
         // Increment the humanScore or computerScore variable based on the round winner
 
         function playRound(humanChoice, computerChoice) {
+            let capitalizeComputerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+            let capitalizeHumanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+            
 
-            if (computerChoice == 'rock' && humanChoice == 'scissors' 
-            || computerChoice == 'scissors' && humanChoice == 'paper'
-            |||
+            if (computerChoice == humanChoice) {
+                console.log("You tied!");
+            } else if (computerChoice == 'rock' && humanChoice == 'scissors' || 
+            computerChoice == 'scissors' && humanChoice == 'paper' || 
+            computerChoice == 'paper' && humanChoice == 'rock') {
+                console.log("You lose! " + capitalizeComputerChoice + " beats " + humanChoice + ".");
+                return computerScore += 1;
+            } else {
+                console.log("You win! " + capitalizeHumanChoice + " beats " + computerChoice + ".");
+                return humanScore += 1;
+            }
         
         }
+
 
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
 
+
+        console.log(computerSelection);
+        console.log(humanSelection);
         playRound(humanSelection, computerSelection);
+        console.log(computerScore + " " + humanScore);
+
 
 
 
@@ -53,20 +70,12 @@
         
         }
 
-        // Show computer's choice
-        // console.log(getComputerChoice());
-
         // Prompt the user for their choice of rock, paper, or scissors
         function getHumanChoice() {
             let humanChoice = prompt("Choose rock, paper, or scissors");
-            return humanChoice;
+            return humanChoice.toLowerCase();
 
         }
-
-
-
-        // Show human's choice
-        // console.log(getHumanChoice());
 
 
 
