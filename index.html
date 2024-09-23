@@ -54,16 +54,17 @@
             }
         
             
-
+        // Loop for 5 rounds and increment score
             for (let i = 0; i < 5; i++) {
                 
                 const humanSelection = getHumanChoice();
                 const computerSelection = getComputerChoice();
                 
                 playRound(humanSelection, computerSelection);
-                console.log("Your Score: " + humanScore + `Computer's Score: ` + computerScore);
+                console.log("Your Score: " + humanScore + ` Computer's Score: ` + computerScore);
             }
-
+            
+        // Compare scores and output string for results
             if (humanScore == computerScore) {
                 console.log("You've tied! Good try!");
             } else if (humanScore > computerScore) {
@@ -73,10 +74,6 @@
             }
 
 
-            // console.log(computerSelection);
-            // console.log(humanSelection);
-            
-            // console.log(computerScore + " " + humanScore);
         }
 
         playGame();
