@@ -57,12 +57,19 @@
 
             for (let i = 0; i < 5; i++) {
                 
-                
                 const humanSelection = getHumanChoice();
                 const computerSelection = getComputerChoice();
                 
-
                 playRound(humanSelection, computerSelection);
+                console.log("Your Score: " + humanScore + `Computer's Score: ` + computerScore);
+            }
+
+            if (humanScore == computerScore) {
+                console.log("You've tied! Good try!");
+            } else if (humanScore > computerScore) {
+                console.log("You win! Congratulations!"); 
+            } else {
+                console.log("You lose. Beter luck next time.");
             }
 
 
