@@ -6,84 +6,28 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+
+    <div id='container'>
+        <button class='rock'>Rock</button>
+        <button class='paper'>Paper</button>
+        <button class='scissors'>Scissors</button>
+    </div>
+
+<body>
     <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
+        const container = document.querySelector('#container');
+        const rockButton = document.querySelector('.rock');
+        const paperButton = document.querySelector('.paper');
+        const scissorsButton = document.querySelector('.scissors');
 
         
 
-        // Call the function getHumanChoice
-        //getHumanChoice();
-
-        // create new function playRound
-        // define two parameters for playRound: humanChoice and computerChoice;
-        // make parameters case-insensitive
-        // Write the code for function to console.log a string value representing the round winner
-        // Increment the humanScore or computerScore variable based on the round winner
-
-       
-
-
-        // Play the entire game
-        // Game will play 5 rounds
-        // Keep track of score
-        // Declare a winner at the end
-
-        function playGame() {
-
-
-        // Declare the players score variables
-            let humanScore = 0;
-            let computerScore = 0;
-
-            function playRound(humanChoice, computerChoice) {
-                let capitalizeComputerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-                let capitalizeHumanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
-                
-
-                if (computerChoice == humanChoice) {
-                    console.log("You tied!");
-                } else if (computerChoice == 'rock' && humanChoice == 'scissors' || 
-                computerChoice == 'scissors' && humanChoice == 'paper' || 
-                computerChoice == 'paper' && humanChoice == 'rock') {
-                    console.log("You lose! " + capitalizeComputerChoice + " beats " + humanChoice + ".");
-                    return computerScore += 1;
-                } else {
-                    console.log("You win! " + capitalizeHumanChoice + " beats " + computerChoice + ".");
-                    return humanScore += 1;
-                }
-            
-            }
-        
-            
-        // Loop for 5 rounds and increment score
-            for (let i = 0; i < 5; i++) {
-                
-                const humanSelection = getHumanChoice();
-                const computerSelection = getComputerChoice();
-                
-                playRound(humanSelection, computerSelection);
-                console.log("Your Score: " + humanScore + ` Computer's Score: ` + computerScore);
-            }
-
-        // Compare scores and output string for results
-            if (humanScore == computerScore) {
-                console.log("You've tied! Good try!");
-            } else if (humanScore > computerScore) {
-                console.log("You win! Congratulations!"); 
-            } else {
-                console.log("You lose. Better luck next time.");
-            }
-
-
-        }
-
-        playGame();
 
 
 
-
-
-        // Play a game of Rock, Paper, Scissors against the computer
-        // Randomly generate rock, paper, or scissors for computer
 
         function getComputerChoice() {
          let computerChoice = Math.floor(Math.random() * 3);
@@ -96,25 +40,80 @@
             return computerChoice = 'scissors';
          }
         
-        }
+        }           
+        
+        function playRound(humanChoice, computerChoice) {
 
-        // Prompt the user for their choice of rock, paper, or scissors
-        function getHumanChoice() {
-            let humanChoice = prompt("Choose rock, paper, or scissors");
-            return humanChoice.toLowerCase();
-
-        }
+                let capitalizeComputerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+                let capitalizeHumanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
 
 
+                if (computerChoice == humanChoice) {
+                    console.log("You tied!");
+                } else if (computerChoice == 'rock' && humanChoice == 'scissors' ||
+                    computerChoice == 'scissors' && humanChoice == 'paper' ||
+                    computerChoice == 'paper' && humanChoice == 'rock') {
+                    console.log("You lose! " + capitalizeComputerChoice + " beats " + humanChoice + ".");
+                    computerScore++;
+                } else {
+                    console.log("You win! " + capitalizeHumanChoice + " beats " + computerChoice + ".");
+                    humanScore++ 1;
+                }
+
+                console.log("Your Score: " + humanScore + ` Computer's Score: ` + computerScore);
 
 
+            }
+
+        //function game() {
+
+
+            //for (let i = 0; i < 5; i++) {
+                
+            //    const humanSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
+            //    const computerSelection = getComputerChoice();
+                 
+            //    playRound(humanSelection, computerSelection);
+            //    console.log("Your Score: " + humanScore + ` Computer's Score: ` + computerScore);
+            // }
+
+
+            //if (humanScore == computerScore) {
+            //    console.log("You've tied! Good try!");
+            //} else if (humanScore > computerScore) {
+            //    console.log("You win! Congratulations!"); 
+            //} else {
+            //    console.log("You lose. Better luck next time.");
+           // }
+
+
+                
+        //    }         
+
+
+        //game();
+
+
+       rockButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const humanSelection = 'rock';
+        playRound(humanSelection, computerSelection);
+       });
+
+       paperButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const humanSelection = 'paper';
+        playRound(humanSelection, computerSelection);
+       });
+
+       scissorsButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const humanSelection = 'scissors';
+        playRound(humanSelection, computerSelection);
+       });
         
 
-
         
-
-        
-
 
     </script>
     
