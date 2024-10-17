@@ -12,9 +12,8 @@
         <button class='paper'>Paper</button>
         <button class='scissors'>Scissors</button>
     </div>
-    <div class="outcome">
-
-    </div>
+    <div class="outcome"></div>
+    <div class="results"></div>
 
 <body>
     <script>
@@ -26,6 +25,7 @@
         const paperButton = document.querySelector('.paper');
         const scissorsButton = document.querySelector('.scissors');
         const outcomeDiv = document.querySelector('.outcome');
+        const resultsDiv = document.querySelector('.results');
 
         
 
@@ -53,25 +53,47 @@
 
 
                 if (computerChoice == humanChoice) {
+                    outcomeDiv.innerText = '';
+
                     const p = document.createElement('p');
-                    p.innerText = "You tied!";
+                    p.innerText = "You tied! " + capitalizeComputerChoice + " matches " + humanChoice + ".";
                     outcomeDiv.appendChild(p);
                 } else if (computerChoice == 'rock' && humanChoice == 'scissors' ||
                     computerChoice == 'scissors' && humanChoice == 'paper' ||
                     computerChoice == 'paper' && humanChoice == 'rock') {
 
+                    outcomeDiv.innerText = '';
                     const p = document.createElement('p');
                     p.innerText = "You lose! " + capitalizeComputerChoice + " beats " + humanChoice + ".";
                     outcomeDiv.appendChild(p);
                     computerScore++;
                 } else {
+                    outcomeDiv.innerText = '';
                     const p = document.createElement('p');
                     p.innerText = "You win! " + capitalizeHumanChoice + " beats " + computerChoice + ".";
                     outcomeDiv.appendChild(p);
                     humanScore++;
                 }
 
-                console.log("Your Score: " + humanScore + ` Computer's Score: ` + computerScore);
+                const p = document.createElement('p');
+                p.innerText = "Your Score: " + humanScore + ` Computer's Score: ` + computerScore;
+                outcomeDiv.appendChild(p);
+
+                if (humanScore == '5') {
+                    resultsDiv.innerText = '';
+                    const p = document.createElement('p');
+                    p.innerText = 'You win! Congratulations!';
+                    resultsDiv.appendChild(p);
+                    humanScore = 0;
+                    computerScore = 0;
+                } else if (computerScore == '5') {
+                    resultsDiv.innerText = '';
+                    const p = document.createElement('p');
+                    p.innerText = 'You lose! Better luck next time!';
+                    resultsDiv.appendChild(p);
+                    humanScore = 0;
+                    computerScore = 0;
+                }
 
 
             }
