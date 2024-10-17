@@ -12,6 +12,9 @@
         <button class='paper'>Paper</button>
         <button class='scissors'>Scissors</button>
     </div>
+    <div class="outcome">
+
+    </div>
 
 <body>
     <script>
@@ -22,6 +25,7 @@
         const rockButton = document.querySelector('.rock');
         const paperButton = document.querySelector('.paper');
         const scissorsButton = document.querySelector('.scissors');
+        const outcomeDiv = document.querySelector('.outcome');
 
         
 
@@ -49,15 +53,22 @@
 
 
                 if (computerChoice == humanChoice) {
-                    console.log("You tied!");
+                    const p = document.createElement('p');
+                    p.innerText = "You tied!";
+                    outcomeDiv.appendChild(p);
                 } else if (computerChoice == 'rock' && humanChoice == 'scissors' ||
                     computerChoice == 'scissors' && humanChoice == 'paper' ||
                     computerChoice == 'paper' && humanChoice == 'rock') {
-                    console.log("You lose! " + capitalizeComputerChoice + " beats " + humanChoice + ".");
+
+                    const p = document.createElement('p');
+                    p.innerText = "You lose! " + capitalizeComputerChoice + " beats " + humanChoice + ".";
+                    outcomeDiv.appendChild(p);
                     computerScore++;
                 } else {
-                    console.log("You win! " + capitalizeHumanChoice + " beats " + computerChoice + ".");
-                    humanScore++ 1;
+                    const p = document.createElement('p');
+                    p.innerText = "You win! " + capitalizeHumanChoice + " beats " + computerChoice + ".";
+                    outcomeDiv.appendChild(p);
+                    humanScore++;
                 }
 
                 console.log("Your Score: " + humanScore + ` Computer's Score: ` + computerScore);
@@ -65,33 +76,6 @@
 
             }
 
-        //function game() {
-
-
-            //for (let i = 0; i < 5; i++) {
-                
-            //    const humanSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
-            //    const computerSelection = getComputerChoice();
-                 
-            //    playRound(humanSelection, computerSelection);
-            //    console.log("Your Score: " + humanScore + ` Computer's Score: ` + computerScore);
-            // }
-
-
-            //if (humanScore == computerScore) {
-            //    console.log("You've tied! Good try!");
-            //} else if (humanScore > computerScore) {
-            //    console.log("You win! Congratulations!"); 
-            //} else {
-            //    console.log("You lose. Better luck next time.");
-           // }
-
-
-                
-        //    }         
-
-
-        //game();
 
 
        rockButton.addEventListener('click', () => {
